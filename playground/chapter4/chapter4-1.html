@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app4-1">
+        <app-header v-bind:propsdata="message"></app-header>
+        <app-content v-bind:propscontent="content"></app-content>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var appHeader = {
+	        template: `
+                <div class="app-header">
+                  <h1>{{propsdata}}</h1>
+                  <div>{{propsdata}}</div>
+                </div>
+            `,
+            props: [
+				'propsdata'
+            ]
+        }
+
+		var appContent = {
+			template: `
+			    <div class="app-content">
+			        <h1>{{propscontent}}</h1>
+                </div>
+			`,
+            props: ['propscontent']
+        }
+
+		new Vue({
+			el: '#app4-1',
+			data: {
+				message: 'hi',
+                content: 10
+			},
+            components: {
+				'app-header': appHeader,
+                'app-content': appContent
+            }
+		})
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app4-2">
+        <div>{{num}}</div>
+        <app-header v-on:pass="logText"></app-header>
+        <app-content v-on:add="increaseNum"></app-content>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var appHeader = {
+		    template: `<button v-on:click="passEvent">click me</button>`,
+            methods: {
+				passEvent: function () {
+                    this.$emit('pass')
+				}
+            }
+        }
+
+		var appContent = {
+			template: `<button v-on:click="addNumber">add</button>`,
+            methods: {
+				addNumber: function () {
+                    this.$emit('add')
+				}
+            }
+        }
+
+		var obj = {
+			num: 10,
+            getNumber: function () {
+	            console.log(this.num)
+            }
+        }
+
+		new Vue({
+			el: '#app4-2',
+			data: {
+				num: 10
+			},
+            components: {
+				'app-header': appHeader,
+                'app-content': appContent
+            },
+            methods: {
+				logText: function () {
+					console.log('hi')
+				},
+	            increaseNum: function () {
+					console.log('숫자 +1')
+                    this.num += 1;
+	            }
+            }
+		})
+    </script>
+</body>
+</html>
