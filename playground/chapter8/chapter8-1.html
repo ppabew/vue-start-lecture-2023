@@ -15,8 +15,13 @@
             Loading...
         </div>
         <div v-else>
-            test user login
+            test user has been logged in
         </div>
+        <div v-show="loading">
+            Loading...
+        </div>
+        <input v-model="message">
+        <p>Message is: {{message}}</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
@@ -26,7 +31,8 @@
                 num: 10,
                 uuid: 'abc1234',
                 name: 'text-blue',
-                loading: true
+                loading: true,
+                message: ''
 			},
             computed: {
 				doubleNum: function () {
