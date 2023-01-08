@@ -8,5 +8,6 @@
     <orderEntry type="library" name="vue-router" level="application" />
     <orderEntry type="library" name="axios" level="application" />
     <orderEntry type="library" name="wcslog" level="application" />
+    <orderEntry type="library" name="@types/prettier" level="application" />
   </component>
 </module>
